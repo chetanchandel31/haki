@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { ButtonType, ComponentSize } from "./index";
 
 export const sidePaddings: { [key in ComponentSize]: number } = {
@@ -43,9 +43,9 @@ interface StyledButtonProps {
   withText: boolean;
 }
 
-/* Real tag is assigned dynamically */
+/* Real tag is assigned dynamically based on `as` prop */
 export const StyledButton = styled.button<StyledButtonProps>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   /* Add margin in case of loading or icon */

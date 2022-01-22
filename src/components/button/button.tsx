@@ -80,7 +80,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
       </StyledButton>
     );
   }
-
+  // can't pass `as` or `href` if a normal button is needed
   return (
     <StyledButton
       as="button"
