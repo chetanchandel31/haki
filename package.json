@@ -10,30 +10,20 @@
     "styled-components": "^5.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "tsc --build \"./tsconfig.json\"",
     "test": "react-scripts test",
+    "clean": "if exist lib rd /s /q lib",
+    "compile-icons": "npx @svgr/cli -d src/icons src/icons --typescript",
+    "copy-fonts": "copyfiles -u 1 src/config/fonts/* lib/",
     "eject": "react-scripts eject",
+    "postbuild": "npm run copy-fonts",
+    "prebuild": "npm run clean && npm run compile-icons",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "prebuild": "if exist lib rd /s /q lib",
     "prepublish": "npm run build"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -48,30 +38,32 @@
     ]
   },
   "peerDependencies": {
-    "react": ">=17.0.2",
-    "react-dom": ">=17.0.2"
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
     "@storybook/addon-actions": "^6.4.14",
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/addon-links": "^6.4.14",
-    "@storybook/builder-webpack5": "^6.4.14",
-    "@storybook/manager-webpack5": "^6.4.14",
     "@storybook/node-logger": "^6.4.14",
     "@storybook/preset-create-react-app": "^4.0.0",
     "@storybook/react": "^6.4.14",
+    "@svgr/cli": "^5.4.0",
     "@types/styled-components": "^5.1.21",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.11.21",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
-    "webpack": "^5.66.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
+    "babel-loader": "^8.1.0",
+    "copyfiles": "^2.4.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "react-scripts": "3.4.3",
     "typescript": "^4.5.5"
   }
 }
