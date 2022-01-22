@@ -1,6 +1,6 @@
 {
   "name": "haki-react",
-  "version": "0.0.5",
+  "version": "0.0.3",
   "private": false,
   "main": "lib/index.js",
   "files": [
@@ -17,7 +17,7 @@
     "copy-fonts": "copyfiles -u 1 src/config/fonts/* lib/",
     "eject": "react-scripts eject",
     "postbuild": "npm run copy-fonts",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean && npm run compile-icons",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "prepublish": "npm run build"
