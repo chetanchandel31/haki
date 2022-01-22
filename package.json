@@ -11,13 +11,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "tsc",
+    "build": "tsc --build \"./tsconfig.json\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "prebuild": "if exist lib rd /s /q lib",
-    "prepack": "npm run build"
+    "prepublish": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -72,7 +72,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "typescript": "^4.5.5",
-    "web-vitals": "^2.1.4"
+    "typescript": "^4.5.5"
   }
 }
